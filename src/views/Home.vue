@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import header from '@/views/header.vue'
+import topbar from '@/views/topbar.vue'
 export default {
   components:{
-    header:topbar
+    topbar
   }
 }
 </script>
