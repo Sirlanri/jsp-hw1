@@ -18,7 +18,7 @@
       <router-link to="/car" class="no-decor">
         <v-btn text large>购物车</v-btn>
       </router-link>
-      <v-btn text large @click="loginWin = true">登录</v-btn>
+      <v-btn text large @click="loginWin = true" v-if="!islogin">登录</v-btn>
 
       <v-menu bottom left>
         <template v-slot:activator="{ on, attrs }">
@@ -48,7 +48,7 @@
           </v-row>
         </v-card-text>
         <v-card-actions>
-          <v-btn large color="primary">登录</v-btn>
+          <v-btn large color="primary" @click="login">登录</v-btn>
           <v-btn large @click="loginWin = false" outlined>取消</v-btn>
         </v-card-actions>
       </v-card>
@@ -143,6 +143,19 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
+  <v-dialog
+    v-model="helloWin" max-width="500px"
+    transition="dialog-transition"
+  >
+    <v-card>
+      <v-card-title>
+        欢迎登录 {{userName}}
+      </v-card-title>
+      <v-card-actions>
+        <v-btn block color="primary" @click="helloWin=false">朕知道了</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
   </div>
 </template>
 
@@ -150,6 +163,8 @@
 export default {
   data() {
     return {
+      islogin:false,
+      helloWin:false,
       addItemWin:false,
       loginWin: false,
       leftDrawer:true,
@@ -185,6 +200,11 @@ export default {
     },
     cTag(tag){
       this.$store.commit('cTag',tag)
+    },
+    login(){
+      this.islogin=true
+      this.loginWin=false
+      this.helloWin=true
     }
 
   },
