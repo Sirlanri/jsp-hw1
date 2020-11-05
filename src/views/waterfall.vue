@@ -74,22 +74,42 @@ export default {
   },
   data() {
 		return {
-      cardsData:[
-        {name:"荣耀Play4T",price:1288,detail:"全网通6GB+128GB大内存 幻夜黑 4000mAh大电池 4800万AI摄影 6.39英寸魅眼屏",picsrc:"https://img10.360buyimg.com/n1/s450x450_jfs/t1/116226/28/463/178123/5e8c4a42E1a74e70b/f203745e20ed06ec.jpg",tag:1},
-        {name:"小米10青春版",price:2199,detail:"双模5G 骁龙765G 50倍潜望式变焦四摄 8GB+128GB 白桃乌龙 游戏手机",picsrc:"https://img11.360buyimg.com/cms/jfs/t1/93100/2/12107/87972/5e44f0daE62e6d845/086cb7e77a8fce5c.jpg",tag:1},
-        {name:"小米10至尊纪念版",price:5599,detail:"双模5G 骁龙865 120HZ高刷新率 120倍长焦镜头 120W快充 8GB+256GB 陶瓷黑 游戏手机",picsrc:"https://img11.360buyimg.com/cms/jfs/t1/91053/11/12219/89474/5e44efa1E74760ec3/5c420e086c42397f.jpg",tag:1},
-        {name:"iPhone 11",price:4799,detail:"黑色 移动联通电信4G手机 双卡双待",picsrc:"https://img14.360buyimg.com/cms/jfs/t1/107720/35/12444/176730/5e975bd6E1bd6f2e9/1dfea37d05e337ee.png",tag:1},
-        
-      ],
 			cards1: [],
 			cards2: [],
 			cards3: [],
+			//cardsData存储展示的数据，不是全部数据
+			cardsData:[],
 			screenWidth: window.innerWidth,
 			postCount: 20,
       loadFlag: false,
 		};
 	},
+
+	computed:{
+		cards(){
+			return this.$store.state.itemDatas
+		},
+		cTag(){
+			return this.$store.state.currentTag
+		}
+	},
+
 	methods: {
+		//筛选功能2
+		tagFilter2(){
+			this.cardsData=[]
+			if (this.cTag=="全部商品") {
+				this.cardsData=this.cards
+				return
+			}
+			for (let index = 0; index < this.cards.length; index++) {
+				var element = this.cards[index];
+				if (element.tag==this.cTag) {
+					this.cardsData.push(element)
+				}
+			}
+		},
+
 		//将数据均匀地分到3列
 		shunt3() {
 			this.cards1 = [];
@@ -147,10 +167,16 @@ export default {
 				that.screenWidth = window.screenWidth;
 			})();
     };
-    this.shunt3()
+		this.cardsData=this.$store.state.itemDatas
+		this.shunt3()
 	},
 
 	watch: {
+		//筛选功能
+		cTag(){
+			this.tagFilter2()
+		},
+
 		cardsData: function () {
 			if (this.screenWidth >= 1264) {
 				this.shunt3();
