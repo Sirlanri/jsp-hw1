@@ -22,7 +22,7 @@ props:{
   name:String,
   detail:String,
   picsrc:String,
-  price:Number,
+  price:String,
 }
 }
 </script>
