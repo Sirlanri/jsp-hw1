@@ -3,7 +3,7 @@
 
   
   <v-card color="grey lighten-4">
-    <v-toolbar>
+    <v-app-bar fixed>
       <v-app-bar-nav-icon @click="leftDrawer=!leftDrawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>深蓝电商平台</v-toolbar-title>
@@ -28,7 +28,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-    </v-toolbar>
+    </v-app-bar>
 
     <v-dialog v-model="loginWin" max-width="700">
       <v-card>
@@ -53,7 +53,8 @@
       </v-card>
     </v-dialog>
   </v-card>
-  <v-navigation-drawer v-model="leftDrawer">
+
+  <v-navigation-drawer v-model="leftDrawer" fixed style="top:64px">
     <v-list>
       <v-list-item>
         <v-list-item-title class="left-title">
