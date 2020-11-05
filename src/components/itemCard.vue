@@ -4,10 +4,9 @@
     <v-card-title>{{name}}</v-card-title>
     <v-card-text>
       {{detail}}
-      <br>
-      价格：{{price}}
     </v-card-text>
     <v-card-actions>
+      <p class="ri-price">￥ {{price}}</p>
       <v-spacer></v-spacer>
       <v-btn large>
         <v-icon>mdi-cart-outline</v-icon>加入
@@ -31,5 +30,8 @@ props:{
 .v-card{
   margin: 1rem ;
   padding: 1rem;
+}
+.ri-price{
+  font-size: 1.2rem;
 }
 </style>

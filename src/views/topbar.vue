@@ -11,7 +11,7 @@
       <v-spacer></v-spacer>
 
       <v-btn text large>首页</v-btn>
-      <v-btn text large >分类</v-btn>
+      <v-btn text large @click="addItemWin=true">添加</v-btn>
       <v-btn text large >购物车</v-btn>
       <v-btn text large @click="loginWin = true">登录</v-btn>
 
@@ -22,11 +22,7 @@
           </v-btn>
         </template>
 
-        <v-list>
-          <v-list-item link @click="addItemWin=true">
-            <v-list-item-title>添加</v-list-item-title>
-          </v-list-item>
-        </v-list>
+        
       </v-menu>
     </v-app-bar>
 
