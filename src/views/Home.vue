@@ -1,17 +1,16 @@
 <template>
   <div class="home">
     <topbar></topbar>
-    <water></water>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import topbar from '@/views/topbar.vue'
-import water from '@/views/waterfall.vue'
 export default {
   components:{
     topbar,
-    water
+    
   }
 }
 </script>

@@ -10,9 +10,14 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn text large>首页</v-btn>
+      <router-link to="/" class="no-decor">
+        <v-btn text large>首页</v-btn>
+      </router-link>
+      
       <v-btn text large @click="addItemWin=true">添加</v-btn>
-      <v-btn text large >购物车</v-btn>
+      <router-link to="/car" class="no-decor">
+        <v-btn text large>购物车</v-btn>
+      </router-link>
       <v-btn text large @click="loginWin = true">登录</v-btn>
 
       <v-menu bottom left>
@@ -193,5 +198,8 @@ export default {
   color: rgb(145, 145, 145);
   margin-left: 4rem;
   font-size: 1.2rem;
+}
+.no-decor{
+  text-decoration: none;
 }
 </style>

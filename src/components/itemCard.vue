@@ -8,7 +8,7 @@
     <v-card-actions>
       <p class="ri-price">￥ {{price}}</p>
       <v-spacer></v-spacer>
-      <v-btn large>
+      <v-btn large v-if="!incar" @click="addCar">
         <v-icon>mdi-cart-outline</v-icon>加入
       </v-btn>
     </v-card-actions>
@@ -17,12 +17,23 @@
 
 <script>
 export default {
-props:{
-  name:String,
-  detail:String,
-  picsrc:String,
-  price:String,
-}
+  props:{
+    name:String,
+    detail:String,
+    picsrc:String,
+    price:String,
+    incar:Boolean,
+  },
+  methods:{
+    addCar(){
+      let newItem={}
+      newItem.name=this.name
+      newItem.price=this.price
+      newItem.detail=this.detail
+      newItem.picsrc=this.picsrc
+      this.$store.commit('addCar',newItem)
+    }
+  }
 }
 </script>
 

@@ -14,6 +14,11 @@ const routes = [
         path:'',
         name:'waterfall',
         component:()=>import('../views/waterfall.vue')
+      },
+      {
+        path:'car',
+        name:'car',
+        component:()=>import('../views/shopCar.vue')
       }
     ]
   },

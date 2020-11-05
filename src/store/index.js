@@ -5,8 +5,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    car: [], //购物车
+    //购物车
+    car: [],
     itemDatas: [{
+      "name": "头戴式耳机",
+      "price": "99",
+      "detail": "惠普（HP） H200电脑耳机 头戴式耳机耳麦电竞游戏耳机吃鸡听声辩位有线耳机 7.1声道重低音带麦 H200黑色【标准版】",
+      "picsrc": "https://img11.360buyimg.com/n1/jfs/t1/121039/26/4690/368456/5ee1f6ffE694b08aa/a99431cdb301d35b.png",
+      "tag": "手机数码"
+    }, {
+      "name": "情侣卫衣",
+      "price": "899",
+      "detail": "（预售）boylondon旗舰官网哈利·波特联名渐变蓝情侣卫衣飞马印花741001 白色 XS 尺码偏大",
+      "picsrc": "https://img14.360buyimg.com/n1/s350x449_jfs/t1/151635/13/4137/222851/5f9d41aeEba5c57e2/097c51e838f80a55.jpg!cc_350x449.jpg",
+      "tag": "服饰鞋帽"
+    }, {
+      "name": "男裤休闲裤",
+      "price": "269",
+      "detail": "【棉莫代尔】九牧王男裤休闲裤子男2020秋冬季新品男士易打理长裤男 弹力环保舒适柔软商务休闲裤男直筒 TB1051183+骑士黑+标准版 33码2.58尺86厘米",
+      "picsrc": "https://img10.360buyimg.com/n1/s350x449_jfs/t1/131167/2/14527/125125/5fa23f6aE7b8d6ce3/7a66c90c02b8a68e.jpg!cc_350x449.jpg",
+      "tag": "服饰鞋帽"
+    }, {
+      "name": "办公鼠标",
+      "price": "49",
+      "detail": "飞利浦（PHILIPS）鹅卵石无线鼠标静音无声便携苹果笔记本台式电脑商务办公鼠标mac华为通用男女生 樱花粉-电池版",
+      "picsrc": "https://img14.360buyimg.com/n1/jfs/t1/127141/24/3017/126128/5ecc7e1eE0825a7ef/ee04670265d18432.jpg",
+      "tag": "手机数码"
+    }, {
       "name": "GK100机械键盘",
       "price": "126",
       "detail": "惠普（HP）GK100机械键盘 游戏有线背光电竞键盘鼠标套装 笔记本台式电脑外设办公键鼠耳机三件套 GK100金属灰(白光)青轴",
@@ -85,7 +110,7 @@ export default new Vuex.Store({
       "picsrc": "https://img13.360buyimg.com/cms/jfs/t1/149787/29/10581/146149/5f8642d5E2c87dff7/f7c7611a01d11ccd.png",
       "tag": "手机数码"
     }],
-    currentTag:"全部商品",
+    currentTag: "全部商品",
   },
   mutations: {
     //添加新商品，传入整个商品的信息对象
@@ -93,8 +118,12 @@ export default new Vuex.Store({
       state.itemDatas.unshift(item)
     },
 
-    cTag(state,tag){
-      state.currentTag=tag
+    cTag(state, tag) {
+      state.currentTag = tag
+    },
+
+    addCar(state,item){
+      state.car.push(item)
     }
   },
   actions: {},
